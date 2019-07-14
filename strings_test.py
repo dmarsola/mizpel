@@ -1,80 +1,37 @@
-import strings as s
-from commons import word_list
 import datetime
-
-
-def test_methods():
-    s1, s2 = "ABCDE", "ABCDE"
-    print(f'{"Pass" if s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test different case sensitive
-    s1, s2 = "ABCDE", "aBCDe"
-    print(f'{"Pass" if not s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test equal case insensitive
-    s1, s2 = "ABCDE", "aBCDe"
-    print(f'{"Pass" if s.compare_equal(s1, s2, False) else "Fail"} | {s1}, {s2}\n')
-
-    # test different on last
-    s1, s2 = "ABCDE", "ABCDF"
-    print(f'{"Pass" if not s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test different on first
-    s1, s2 = "ABCDE", "FBCDE"
-    print(f'{"Pass" if not s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test different off by 1 (0 tolerance)
-    s1, s2 = "ABCDE", "ABCDEF"
-    print(f'{"Pass" if not s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test different types
-    s1, s2 = "12345", 12345
-    print(f'{"Pass" if s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test different types
-    s1, s2 = "abcdef", ('a', 'b', 'c', 'd', 'e', 'f')
-    print(f'{"Pass" if s.compare_equal(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test different types
-    s1, s2 = "1abcdef1", ('a', 'b', 'c', 'd', 'e', 'f')
-    print(f'{"Pass" if s.compare_similar(s1, s2, 2) else "Fail"} | {s1}, {s2}\n')
-
-    # test equal off by 1 last (1 tolerance)
-    s1, s2 = "abcdef", "ABCDEF"
-    print(f'{"Pass" if s.compare_similar(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test equal off by 1 last (1 tolerance)
-    s1, s2 = "abcdef", "ABCDEF"
-    print(f'{"Pass" if s.compare_similar(s1, s2) else "Fail"} | {s1}, {s2}\n')
-
-    # test equal off by 1 first leter (1 tolerance)
-    s1, s2 = "abcdef", "FABCDEF"
-    print(f'{"Pass" if s.compare_similar(s1, s2, 1) else "Fail"} | {s1}, {s2}\n')
-
-    # test equal off by 1 first leter (1 tolerance)
-    s1, s2 = "casa", "caça"
-    print(f'{"Pass" if s.compare_similar(s1, s2, 1) else "Fail"} | {s1}, {s2}\n')
-
-    s1, s2 = "aaa", "a"
-    print(f'{"Pass" if s.compare_similar(s1, s2, 2) else "Fail"} | {s1}, {s2}\n')
-
-    s1, s2 = "aaa", "a"
-    print(f'{"Pass" if not s.compare_similar(s1, s2, 1) else "Fail"} | {s1}, {s2}\n')
-
-    print("done!")
+from WordDictionary import WordDictionary
 
 
 if __name__ == "__main__":
-    test_methods()
-    # print(word_list[10])
-    print("Finding similar words to abductor...")
-    start = datetime.datetime.now()
-    print(s.find_similar("craize"))
-    end = datetime.datetime.now()
-    print(f'it took {end-start} milliseconds')
+    test_words = ['bluber', 'agnostyc', 'hopelesslly', 'zoro', 'myopy',
+                  'miopy', 'flowr', 'flower', 'klower', 'floewr', 'flowre',
+                  'shavel', 'tre']
 
-    # start = datetime.datetime.now()
-    # print(s.find_similar("Bode", True))
-    # end = datetime.datetime.now()
-    # print(f'it took {end-start} milliseconds')
+    # investigate why floewr does not bring any results.
 
+    # Using the WordDictionary class
+    wd = WordDictionary()
+    # wd = WordDictionary("wlist_match5.txt")
+    # wd = WordDictionary("words_alpha.txt")
+    for word in test_words:
+        start = datetime.datetime.now()
+        similar_words = []
+        if word not in wd:
+            similar_words = wd.get_similar_words(word)
+        else:
+            print(f'{word} is in the dictionary')
+        end = datetime.datetime.now()
+        print(f'It took {end-start} milliseconds to search {word}: {similar_words}')
+
+    print(f'\nadding miopy: {wd.append("miopy")}')
+    print(f'adding miopy: {wd.append("miopy")}')
+
+    print("\n2nd round.")
+    for word in test_words:
+        # print(f'\nFinding similar words to {word}...')
+        start = datetime.datetime.now()
+        similar_words = []
+        if word not in wd:
+            similar_words = wd.get_similar_words(word)
+        end = datetime.datetime.now()
+        print(f'It took {end-start} milliseconds to search {word}: {similar_words}')
