@@ -1,5 +1,4 @@
-from commons import word_list
-
+# from commons import word_list
 
 def compare_equal(str1, str2, case_sensitive=True):
     result = True
@@ -89,17 +88,17 @@ def compare_similar(str1, str2, off_by_tolerance=0):
             # print(f'len str1 < len str2 - {str1}, {str2}')
             return compare_similar(str1[counter:], str2[counter + 1:], off_by_tolerance - 1)
 
-
-def find_similar(str1, strict_equal=False):
-    counter = 0
-    found_equal = False
-    similar_by_1 = []
-    for word in word_list:
-        counter += 1
-        # print(f'comparing {str1} and {word_list[counter]}')
-        if compare_similar(str1, word, 1):
-            similar_by_1.append(word)
-            if compare_equal(str1, word, strict_equal):
-                found_equal = True
-    print(f'Done! Total number of words searched: {counter}')
-    return found_equal, similar_by_1
+#
+# def find_similar(str1, strict_equal=False):
+#     counter = 0
+#     found_equal = False
+#     similar_by_1 = []
+#     for word in word_list:
+#         counter += 1
+#         # print(f'comparing {str1} and {word_list[counter]}')
+#         if compare_similar(str1, word, 1):
+#             similar_by_1.append(word)
+#             if compare_equal(str1, word, strict_equal):
+#                 found_equal = True
+#     print(f'Done! Total number of words searched: {counter}')
+#     return found_equal, similar_by_1
