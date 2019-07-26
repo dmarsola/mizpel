@@ -9,23 +9,23 @@ Check if a word is spelled correctly and get a list of suggested words if it is 
 from WordDictionary import WordDictionary
 
 # Instanciate an object of the dictionary
-  `wd = WordDictionary()`
+  `wd = WordDictionary()` <br />
   - You may also pass in the name of your own text file dictionary or choose one of the built in ones
   - remember to add the file to ????
   `wd = WordDictionary("my_dictionary.txt")`
 
 # Check if a word exists in the dictionary
-As simple as
+As simple as: <br />
   `if "mizpel" in wd:`
 
 # Check if a word does not exist and get a list of similar words
-As simple as
-  `if "mizpel" not in wd:`
+As simple as: <br />
+  `if "mizpel" not in wd:` <br />
   `similar_words = wd.get_similar_words("mizpel")`
   
 # Main features:
-  - Add your own words
-    `wd.append("mizpel")`
+  - Add your own words <br />
+    `wd.append("mizpel")` <br />
     - it returns True if it does not alreay exist and was added or False otherwise
     
   - Remove words
