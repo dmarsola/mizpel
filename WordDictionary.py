@@ -33,13 +33,19 @@ class WordDictionary:
         else:
             return False
 
-    def __sub__(self, other):
+    def remove(self, other):
         if other in self.__custom_word_list:
             self.__custom_word_list.remove(other)
             self.__custom_word_count -= 1
             return True
         else:
             return False
+
+    def __sub__(self, other):
+        pass
+
+    def __add__(self, other):
+        pass
 
     def __contains__(self, item):
         # print(f'called contains with {item} {item in self.__word_list}')

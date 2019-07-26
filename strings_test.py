@@ -13,6 +13,7 @@ if __name__ == "__main__":
     wd = WordDictionary()
     # wd = WordDictionary("wlist_match5.txt")
     # wd = WordDictionary("words_alpha.txt")
+
     for word in test_words:
         start = datetime.datetime.now()
         similar_words = []
@@ -24,7 +25,10 @@ if __name__ == "__main__":
         print(f'It took {end-start} milliseconds to search {word}: {similar_words}')
 
     print(f'\nadding miopy: {wd.append("miopy")}')
-    print(f'adding miopy: {wd.append("miopy")}')
+    print(f'adding miopy again: {wd.append("miopy")}')
+    print(f'is miopy in wd: {"miopy" in wd}')
+    print(f'removing miopy: {wd.remove("miopy")}')
+    print(f'is miopy in wd: {"miopy" in wd}')
 
     print("\n2nd round.")
     for word in test_words:
