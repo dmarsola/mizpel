@@ -21,7 +21,7 @@ As simple as: <br />
 # Check if a word does not exist and get a list of similar words
 As simple as: <br />
   `if "mizpel" not in wd:` <br />
-  `similar_words = wd.get_similar_words("mizpel")` <br />
+  `  similar_words = wd.get_similar_words("mizpel")` <br />
   
 # Main features:
   - Add your own words <br />
