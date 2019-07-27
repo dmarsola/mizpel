@@ -16,7 +16,7 @@ setup(
   long_description=long_description,
   long_description_content_type="text/markdown",
   url="https://github.com/dmarsola/mizpel",
-  # packages=setuptools.find_packages(),
+  packages=Extension.find_packages(),
   classifiers=[
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
