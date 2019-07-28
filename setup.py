@@ -1,4 +1,4 @@
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 
 
 from os import path
@@ -8,7 +8,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 setup(
   name='mizpel',
-  version='0.1',
+  version='0.1.1',
   scripts=['mizpel'],
   author="Doug Marsola",
   author_email="douglasmarsola@gmail.com",
@@ -16,7 +16,7 @@ setup(
   long_description=long_description,
   long_description_content_type="text/markdown",
   url="https://github.com/dmarsola/mizpel",
-  packages=Extension.find_packages(),
+  packages=find_packages(),
   classifiers=[
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: MIT License",
