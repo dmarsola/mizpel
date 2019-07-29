@@ -13,6 +13,8 @@ class WordDictionary:
         self.__custom_word_count = 0
         # memoized solution
         self.__similar_word_lists = {}
+        # if the ability to drop custom dictionary is given, the word list must go as well
+        self.__custom_similar_word_list = {}
         self.__initialize_dictionary()
 
     def __initialize_dictionary(self):
